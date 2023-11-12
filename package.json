@@ -1,0 +1,46 @@
+{
+  "name": "@icntower/telegraf-session-ydb",
+  "version": "0.0.1",
+  "description": "Session ydb store adapter for Telegraf",
+  "main": "./ydb.js",
+  "homepage": "https://github.com/cntower/telegraf-session-ydb",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cntower/telegraf-session-ydb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cntower/telegraf-session-ydb/issues"
+  },
+  "scripts": {
+    "clean": "rimraf ./*.js ./*.d.ts",
+    "prepare": "rimraf ./*.js ./*.d.ts && tsc"
+  },
+  "keywords": [
+    "telegraf",
+    "telegram",
+    "bot",
+    "session",
+    "ydb",
+    "serverless"
+  ],
+  "author": "Stanislav Baturin",
+  "license": "MIT",
+  "files": [
+    "./*.js",
+    "./*.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./ydb.d.ts",
+      "default": "./ydb.js"
+    }
+  },
+  "peerDependencies": {
+    "ydb-sdk": "^5.1.1"
+  },
+  "devDependencies": {
+    "ydb-sdk": "^5.1.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.4"
+  }
+}
