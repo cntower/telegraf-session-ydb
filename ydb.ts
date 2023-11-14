@@ -108,9 +108,9 @@ export async function YDB<Session>(
           }
         }
 
-        const value = await withRetries(execute);
-
-        return value ? JSON.parse(value) : undefined;
+        return await withRetries(execute)
+          .then((value) => JSON.parse(value))
+          .catch((error) => console.log(error));
       });
     },
     async set(key: string, session: Session) {
@@ -139,7 +139,9 @@ export async function YDB<Session>(
           return true;
         }
 
-        return await withRetries(execute);
+        return await withRetries(execute)
+          .then((value) => value)
+          .catch((error) => console.log(error));
       });
     },
     async delete(key: string) {
@@ -167,7 +169,9 @@ export async function YDB<Session>(
           return true;
         }
 
-        return await withRetries(execute);
+        return await withRetries(execute)
+          .then((value) => value)
+          .catch((error) => console.log(error));
       });
     },
   };
