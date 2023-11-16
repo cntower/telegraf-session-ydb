@@ -1,8 +1,8 @@
 {
   "name": "@icntower/telegraf-session-ydb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Session ydb store adapter for Telegraf",
-  "main": "./ydb.js",
+  "main": "./ydb-session-store.js",
   "homepage": "https://github.com/cntower/telegraf-session-ydb",
   "repository": {
     "type": "git",
@@ -31,8 +31,8 @@
   ],
   "exports": {
     ".": {
-      "types": "./ydb.d.ts",
-      "default": "./ydb.js"
+      "types": "./ydb-session-store.d.ts",
+      "default": "./ydb-session-store.js"
     }
   },
   "peerDependencies": {
