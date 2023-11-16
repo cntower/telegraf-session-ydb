@@ -24,7 +24,7 @@ export class RequestTypedData extends TypedData {
   }
 }
 
-interface NewClientOpts {
+interface NewDriverOpts {
   /**
    * YDB YDB Driver Config; required.
    *
@@ -38,7 +38,7 @@ interface NewClientOpts {
   onInitError?: (err: unknown) => void;
 }
 
-interface ExistingClientOpts {
+interface ExistingDriverOpts {
   /** If passed, we'll reuse this driver instead of creating our own. */
   driver: Driver;
   /** YDB table name to use for sessions. Defaults to "telegraf-sessions". */
@@ -48,14 +48,14 @@ interface ExistingClientOpts {
 }
 
 /** @unstable */
-export async function YDB<Session>(
-  opts: NewClientOpts
+export async function YdbSessionStore<Session>(
+  opts: NewDriverOpts
 ): Promise<SessionStore<Session>>;
-export async function YDB<Session>(
-  opts: ExistingClientOpts
+export async function YdbSessionStore<Session>(
+  opts: ExistingDriverOpts
 ): Promise<SessionStore<Session>>;
-export async function YDB<Session>(
-  opts: NewClientOpts | ExistingClientOpts
+export async function YdbSessionStore<Session>(
+  opts: NewDriverOpts | ExistingDriverOpts
 ): Promise<SessionStore<Session>> {
   let driver: Driver;
 
